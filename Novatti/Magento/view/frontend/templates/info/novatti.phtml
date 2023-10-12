@@ -1,0 +1,4 @@
+<?php
+$paymentTitle = $block->getMethod()->getConfigData('title', $block->getInfo()->getOrder()->getStoreId());
+?>
+<div class="order-payment-method-name"><?= $block->escapeHtml($paymentTitle) ?></div>

@@ -1,0 +1,44 @@
+<?php
+$paymentTitle = $block->getMethod()->getConfigData('title', $block->getInfo()->getOrder()->getStoreId());
+?>
+<div class="order-payment-method-name"><?= $block->escapeHtml($paymentTitle) ?></div>
+<?php if ($info = $block->getInfo()): ?>
+    <table class="data-table admin__table-secondary">
+        <?php if (isset($info['cc_owner'])): ?>
+            <tr>
+                <th><?= $block->escapeHtml(__('Card Holder Name')) ?>:</th>
+                <td><?= $block->escapeHtml($info['cc_owner']) ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if (isset($info['cc_type'])): ?>
+            <tr>
+                <th><?= $block->escapeHtml(__('Card Type')) ?>:</th>
+                <td><?= $block->escapeHtml($info['cc_type']) ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if (isset($info['cc_last_4'])): ?>
+            <tr>
+                <th><?= $block->escapeHtml(__('Card Number')) ?>:</th>
+                <td><?= $block->escapeHtml($info['cc_last_4']) ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if (isset($info['cc_exp_month'])): ?>
+            <tr>
+                <th><?= $block->escapeHtml(__('Card Expiration Month')) ?>:</th>
+                <td><?= $block->escapeHtml($info['cc_exp_month']) ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if (isset($info['cc_exp_year'])): ?>
+            <tr>
+                <th><?= $block->escapeHtml(__('Card Expiration Year')) ?>:</th>
+                <td><?= $block->escapeHtml($info['cc_exp_year']) ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if (isset($info['cc_trans_id'])): ?>
+            <tr>
+                <th><?= $block->escapeHtml(__('Transaction ID')) ?>:</th>
+                <td><?= $block->escapeHtml($info['cc_trans_id']) ?></td>
+            </tr>
+        <?php endif; ?>
+    </table>
+<?php endif; ?>

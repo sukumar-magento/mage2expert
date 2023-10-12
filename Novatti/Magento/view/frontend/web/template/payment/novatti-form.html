@@ -1,0 +1,64 @@
+<div class="payment-method novatti-payment" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+        <label data-bind="attr: {'for': getCode()}" class="label">
+            <span data-bind="text: getTitle()"></span>
+            <!-- Novatti Logo -->
+            <img data-bind="attr: {src: getNovattiLogoSrc(), alt: $t('Novatti Logo')}"
+                 class="payment-icon"/>
+            <!-- Novatti Logo -->
+        </label>
+        <div data-bind="attr: {class: 'payment_method_novatti_info'}">
+			<p data-bind="text: getNovattiDescription()"></p>
+		</div>
+    </div>
+    <div class="payment-method-content">
+        <div data-bind="attr: {class: 'novatti-wrapper'}">
+            <div data-bind="class: 'payment-logo-wrapper'">
+                <img data-bind="attr: {src: getNovattiLogoSrc(), alt: $t('Novatti Logo')}"
+                class="payment-logo"/>
+            </div>
+            <div data-bind="attr: {id: 'novatti-payment', class: 'novatti-inner'}">
+                <div data-bind="text: 'Card information', attr: {class: 'novpoptitle'}"></div>
+                <div data-bind="text: 'Name on the card*', attr: {id: 'Chosen_HLD', class: 'Chosen_HLD', 'data-hpf': 'cardHolder'}"></div>
+                <div data-bind="text: 'Card number*', attr: {id: 'Chosen_NUM', class: 'Chosen_NUM', 'data-hpf': 'cardNumber'}"></div>
+                <div class="datecvv">
+                    <div data-bind="text: 'Expiry date*', attr: {id: 'Chosen_EXP', class: 'Chosen_EXP', 'data-hpf': 'cardExpiry'}"></div>
+                    <div data-bind="text: 'CVV*', attr: {id: 'Chosen_CVV', class: 'Chosen_CVV', 'data-hpf': 'cvv'}"></div>
+                </div>
+                <button type="button" data-bind="click: submitCard, text: 'Pay', attr: {id: 'paymentButton', class: 'btn btn-primary'}"></button>
+                <button type="button" data-bind="click: closePopup, text: 'Close', attr: {id: 'closeButton', class: 'btn btn-secondary'}"></button>
+            </div>
+        </div>
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="checkout-agreements-block">
+            <!-- ko foreach: $parent.getRegion('before-place-order') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action primary checkout"
+                    type="submit"
+                    data-bind="
+                    click: preparePayment,
+                    attr: {title: $t('Pay with Novatti')},
+                    css: {disabled: !isPlaceOrderActionAllowed()},
+                    enable: (getCode() == isChecked())
+                    ">
+                    <span data-bind="i18n: 'Pay Now'"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

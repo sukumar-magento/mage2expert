@@ -1,0 +1,26 @@
+<?php if ($info = $block->getInfo()): ?>
+    <?php if (isset($info['cc_owner'])): ?>
+        <?= $block->escapeHtml(__('Card Holder Name: %1', $info['cc_owner'])) ?>
+        {{pdf_row_separator}}
+    <?php endif; ?>
+    <?php if (isset($info['cc_type'])): ?>
+        <?= $block->escapeHtml(__('Card Type: %1', $info['cc_type'])) ?>
+        {{pdf_row_separator}}
+    <?php endif; ?>
+    <?php if (isset($info['cc_last_4'])): ?>
+        <?= $block->escapeHtml(__('Card Number: %1', $info['cc_last_4'])) ?>
+        {{pdf_row_separator}}
+    <?php endif; ?>
+    <?php if (isset($info['cc_exp_month'])): ?>
+        <?= $block->escapeHtml(__('Card Expiration Month: %1', $info['cc_exp_month'])) ?>
+        {{pdf_row_separator}}
+    <?php endif; ?>
+    <?php if (isset($info['cc_exp_year'])): ?>
+        <?= $block->escapeHtml(__('Card Expiration Year: %1', $info['cc_exp_year'])) ?>
+        {{pdf_row_separator}}
+    <?php endif; ?>
+    <?php if (isset($info['cc_trans_id'])): ?>
+        <?= $block->escapeHtml(__('Transaction ID: %1', $info['cc_trans_id'])) ?>
+        {{pdf_row_separator}}
+    <?php endif; ?>
+<?php endif; ?>

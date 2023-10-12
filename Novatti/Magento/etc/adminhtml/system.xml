@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="novatti" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Novatti</label>
+                <comment><![CDATA[Novatti is an alternative payment method available for customers at checkout<br/>]]></comment>
+                <fieldset_css>novatti-section</fieldset_css>
+                <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+                <attribute type="displayIn">recommended_solutions</attribute>
+                <group id="credentials" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Novatti Configuration</label>
+                    <attribute type="expanded">1</attribute>
+                    <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/novatti/active</config_path>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/novatti/title</config_path>
+                    </field>
+                    <field id="description" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Description</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/novatti/description</config_path>
+                    </field>
+                    <field id="mode" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Mode</label>        
+                        <source_model>Novatti\Magento\Model\Config\Source\Modes</source_model>
+                        <config_path>payment/novatti/mode</config_path>
+                    </field>
+                    <field id="merchant_id" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Merchant ID</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/novatti/merchant_id</config_path>
+                    </field>
+                    <field id="client_id" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Client ID</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/novatti/client_id</config_path>
+                    </field>
+                    <field id="client_secret" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Client Secret</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/novatti/client_secret</config_path>
+                    </field>
+                    <field id="user_id" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>User ID</label>
+                        <config_path>payment/novatti/user_id</config_path>
+                    </field>
+                    <field id="riskified_domain" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Industry Domain</label>
+                        <config_path>payment/novatti/riskified_domain</config_path>
+                    </field>
+                    <field id="logo" translate="label" type="image" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Logo</label>
+                        <backend_model>Novatti\Magento\Model\Config\Backend\Image</backend_model>
+                        <config_path>payment/novatti/logo</config_path>
+                        <base_url type="media" scope_info="1">novatti</base_url>
+                        <comment><![CDATA[Allowed file types: jpg, jpeg, gif, png, svg]]></comment>
+                    </field>
+                    <field id="allowspecific" translate="label" type="allowspecific" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Payment from Applicable Countries</label>
+                        <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                        <config_path>payment/novatti/allowspecific</config_path>
+                    </field>
+                    <field id="specificcountry" translate="label" type="multiselect" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Payment from Specific Countries</label>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <config_path>payment/novatti/specificcountry</config_path>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                    <field id="sort_order" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Sort Order</label>
+                        <config_path>payment/novatti/sort_order</config_path>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

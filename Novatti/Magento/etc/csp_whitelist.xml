@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="uat-novatti" type="host">https://test-hpf.novattipayments.com</value>
+                <value id="production-novatti" type="host">https://hpf.novattipayments.com</value>
+                <value id="riskified-http" type="host">http://beacon.riskified.com</value>
+                <value id="riskified-https" type="host">https://beacon.riskified.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="uat-novatti-components" type="host">https://hpf-uat.alphapaymentscloud.net</value>
+                <value id="production-novatti-components" type="host">https://hpf.alphapaymentscloud.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="uat-novatti-api" type="host">https://test-hpf.novattipayments.com</value>
+                <value id="production-novatti-api" type="host">https://hpf.novattipayments.com</value>
+                <value id="riskified-connect" type="host">https://c.riskified.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="riskified-img-http" type="host">http://img.riskified.com</value>
+                <value id="riskified-img-https" type="host">https://img.riskified.com</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="google-font" type="host">https://fonts.gstatic.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="google-font-css" type="host">https://fonts.googleapis.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
+
